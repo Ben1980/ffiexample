@@ -28,6 +28,7 @@ final class MyStruct extends Struct {
 class Test {
   Test() {
     Pointer<MyStruct> _struct = calloc<MyStruct>();
+    _struct.ref.a = calloc<Char>();
     _bindings.get_string(_struct.cast<Void>());
 
     final string = _struct.ref.a.cast<Utf8>().toDartString();
