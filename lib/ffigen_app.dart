@@ -21,6 +21,18 @@ final DynamicLibrary _dylib = () {
 
 final testCharPointer _bindings = testCharPointer(_dylib);
 
+final class MyStruct extends Struct {
+  external Pointer<Char> a;
+}
+
 class Test {
-  String get string => _bindings.get_string().cast<Utf8>().toDartString();
+  Test() {
+    Pointer<MyStruct> _struct = calloc<MyStruct>();
+    _bindings.get_string(_struct.cast<Void>());
+
+    final string = _struct.ref.a.cast<Utf8>().toDartString();
+    print(string);
+  }
+  // Pointer<MyStruct> _struct = allocate<MyStruct>();
+  // _bindings.get_string(_struct);
 }

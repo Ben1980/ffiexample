@@ -33,8 +33,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text(test.string),
-        ),
+            //child: Text(test.string),
+            ),
       ),
     );
   }

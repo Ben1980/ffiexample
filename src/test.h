@@ -1,3 +1,4 @@
 
+typedef struct dc_descriptor_t dc_descriptor_t;
 
-char * get_string();
+void get_string(void* data);

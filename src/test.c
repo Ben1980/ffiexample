@@ -1,5 +1,9 @@
 #include "test.h"
 
-char * get_string() {
-    return "Hello World!";
+struct dc_descriptor_t {
+	const char *testStr;
+};
+
+void get_string(void* data) {
+    data = "Hello World!!!";
 }

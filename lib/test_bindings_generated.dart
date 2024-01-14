@@ -27,13 +27,19 @@ class testCharPointer {
           lookup)
       : _lookup = lookup;
 
-  ffi.Pointer<ffi.Char> get_string() {
-    return _get_string();
+  void get_string(
+    ffi.Pointer<ffi.Void> data,
+  ) {
+    return _get_string(
+      data,
+    );
   }
 
   late final _get_stringPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
           'get_string');
   late final _get_string =
-      _get_stringPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
+      _get_stringPtr.asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 }
+
+final class dc_descriptor_t extends ffi.Opaque {}
